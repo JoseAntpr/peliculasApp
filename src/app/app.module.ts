@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app.routes';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { FilmImagePipe } from './pipes/film-image.pipe';
+import { GaleriaComponent } from './components/home/galeria/galeria.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FilmImagePipe } from './pipes/film-image.pipe';
     FilmComponent,
     HomeComponent,
     BuscarComponent,
-    FilmImagePipe
+    FilmImagePipe,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,

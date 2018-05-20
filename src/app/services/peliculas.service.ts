@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operator/map';
+import { map } from 'rxjs/operators/map';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -19,15 +19,31 @@ export class PeliculasService {
 
     const url = `${ this.apiURL }/discover/movie?primary_release_date.gte=${desde}&primary_release_date.lte=${hasta}&api_key=${this.apiKey}`;
 
-    return this.http.get( url );
+    return this.http.get( url ).pipe(
+      map( (data: any) => {
+        return data.results;
+      })
+    );
   }
 
   getPopulares() {
     const url = `${ this.apiURL }/discover/movie?sort_by=popularity.desc&api_key=${this.apiKey}`;
+
+    return this.http.get( url ).pipe(
+      map( (data: any) => {
+        return data.results;
+      })
+    );
   }
 
   getPopularesNinos() {
     const url = `${ this.apiURL }/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apiKey}`;
+
+    return this.http.get( url ).pipe(
+      map( (data: any) => {
+        return data.results;
+      })
+    );
   }
 
   dateTransform(date: Date): string {

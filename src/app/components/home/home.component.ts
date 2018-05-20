@@ -9,14 +9,15 @@ import { PeliculasService } from '../../services/peliculas.service';
 export class HomeComponent implements OnInit {
 
   cartelera: any;
+  populares: any;
+  popularesNinos: any;
 
   constructor(private filmService: PeliculasService) { }
 
   ngOnInit() {
-    this.filmService.getCartelera().subscribe( (data: any ) => {
-      this.cartelera = data.results;
-      console.log(this.cartelera);
-    });
+    this.filmService.getCartelera().subscribe( data => this.cartelera = data);
+    this.filmService.getPopulares().subscribe( data => this.populares = data);
+    this.filmService.getPopularesNinos().subscribe( data => this.popularesNinos = data);
   }
 
 }

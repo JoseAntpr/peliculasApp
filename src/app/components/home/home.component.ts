@@ -8,11 +8,14 @@ import { PeliculasService } from '../../services/peliculas.service';
 })
 export class HomeComponent implements OnInit {
 
+  cartelera: any;
+
   constructor(private filmService: PeliculasService) { }
 
   ngOnInit() {
-    this.filmService.getCartelera().subscribe( data => {
-      console.log(data);
+    this.filmService.getCartelera().subscribe( (data: any ) => {
+      this.cartelera = data.results;
+      console.log(this.cartelera);
     });
   }
 

@@ -11,6 +11,7 @@ import { FilmComponent } from './components/film/film.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app.routes';
 import { BuscarComponent } from './components/buscar/buscar.component';
+import { FilmImagePipe } from './pipes/film-image.pipe';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { BuscarComponent } from './components/buscar/buscar.component';
     NavbarComponent,
     FilmComponent,
     HomeComponent,
-    BuscarComponent
+    BuscarComponent,
+    FilmImagePipe
   ],
   imports: [
     BrowserModule,

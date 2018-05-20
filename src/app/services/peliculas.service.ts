@@ -23,7 +23,11 @@ export class PeliculasService {
   }
 
   getPopulares() {
-    const url = `${ this.apiURL }/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22${this.apiKey}`;
+    const url = `${ this.apiURL }/discover/movie?sort_by=popularity.desc&api_key=${this.apiKey}`;
+  }
+
+  getPopularesNinos() {
+    const url = `${ this.apiURL }/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apiKey}`;
   }
 
   dateTransform(date: Date): string {

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 // servicios
@@ -13,6 +14,7 @@ import { AppRoutingModule } from './app.routes';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { FilmImagePipe } from './pipes/film-image.pipe';
 import { GaleriaComponent } from './components/home/galeria/galeria.component';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { GaleriaComponent } from './components/home/galeria/galeria.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     PeliculasService

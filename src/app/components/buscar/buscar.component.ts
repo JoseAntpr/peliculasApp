@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PeliculasService } from '../../services/peliculas.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-buscar',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarComponent implements OnInit {
 
-  constructor() { }
+  buscar: string;
+  constructor(public filmService: PeliculasService,
+              private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.params.subscribe( params => {
+      console.log(params);
+      if ( params['texto'] ) {
+        this.buscar = params['texto'];
+        this.buscarPelicula();
+      }
+    });
+
+  }
 
   ngOnInit() {
+  }
+
+  buscarPelicula() {
+    if ( this.buscar.length === 0) {
+      return;
+    }
+
+    this.filmService.buscarPelicula( this.buscar ).subscribe();
   }
 
 }

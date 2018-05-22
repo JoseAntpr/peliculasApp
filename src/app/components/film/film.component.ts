@@ -10,10 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 export class FilmComponent implements OnInit {
 
   pelicula: any;
+  regresarA = '';
 
   constructor(private filmService: PeliculasService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe( params => {
+
+      this.regresarA = params['pag'];
       this.filmService.getPelicula( params['id'])
           .subscribe( pelicula => {
             console.log(pelicula);

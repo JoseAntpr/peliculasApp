@@ -19,6 +19,7 @@
                     Popularidad: <span class="badge badge-warning">{{ pelicula.popularity | number:'.0-0'}}/10</span>
                     <br> Votos: <span class="badge badge-warning">{{ pelicula.vote_average}}</span>
                 </p>
+                <button type="button" class="btn btn-outline-danger" [routerLink]="['/'+regresarA, busqueda]">Volver atrás</button>
             </div>
         </div>
 
